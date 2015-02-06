@@ -10,6 +10,7 @@ Adds favicons to links in posts.
 
 == Description ==
 The plugin adds favicons of websites to links which they lead to.
+If a link has image inside (img tag), then favicon will not be added.
 
 Uses Google S2 Favicon service.
 

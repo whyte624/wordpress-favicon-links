@@ -16,7 +16,7 @@ function favicon_links_the_content($content) {
     foreach ($html->getElementsByTagName('a') as $a) {
         /* @var DOMElement $a */
         $imgs = $a->getElementsByTagName('img');
-        if (count($imgs) > 0) {
+        if ($imgs->length > 0) {
             continue;
         }
 
