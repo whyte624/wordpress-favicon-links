@@ -14,7 +14,12 @@ function favicon_links_the_content($content) {
     $html->loadHTML('<meta http-equiv="content-type" content="text/html; charset=utf-8">' . $content);
 
     foreach ($html->getElementsByTagName('a') as $a) {
-        /* @var DOMNode $a */
+        /* @var DOMElement $a */
+        $imgs = $a->getElementsByTagName('img');
+        if (count($imgs) > 0) {
+            continue;
+        }
+
         $url = $a->attributes->getNamedItem('href');
         if (!$url) {
             continue;
@@ -27,7 +32,6 @@ function favicon_links_the_content($content) {
         $img = $html->createElement('img');
         $img->setAttribute('src', 'http://www.google.com/s2/favicons?domain=' . $urlParts['host']);
         $a->insertBefore($img, $a->firstChild);
-//        $a->appendChild($img);
     }
 
     return $html->saveHTML();
