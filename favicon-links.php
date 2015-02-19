@@ -10,6 +10,10 @@
  * License: GPL2
  */
 
+/**
+ * @param $content
+ * @return string
+ */
 function favicon_links_the_content($content)
 {
     try {
@@ -38,7 +42,7 @@ function favicon_links_the_content($content)
 
             $img = $html->createElement('img');
             $img->setAttribute('src', 'http://www.google.com/s2/favicons?domain=' . $urlParts['host']);
-            $img->setAttribute('style', 'padding-right: 4px;');
+            $img->setAttribute('style', 'display: inline-block; padding-right: 4px;');
             $a->insertBefore($img, $a->firstChild);
         }
 
